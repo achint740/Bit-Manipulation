@@ -1,35 +1,20 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 string ltrim(const string &);
 string rtrim(const string &);
 
 // Complete the sumXor function below.
-long sumXor(long n)
+long long xorsum(long long n)
 {
- /*int c=0;
- int x;
- long sum=0;
- long sum_xor;
- for(x=0;x<=n;x++)
-  {
-    sum+=n+x;
-    sum_xor+=n^x;
-    if(sum==sum_xor)
-      c++;
-    sum=0;
-    sum_xor=0;
-  }
-return c;*/
-long c = 0;
+long long ans = 0;
 while(n)
 {
-     c += n%2?0:1;
+     ans += n%2?0:1;
      n/=2; 
 }
-c=pow(2,c);
-return c;
+ans=pow(2,ans);
+return ans;
 }
 
 int main()
@@ -39,9 +24,9 @@ int main()
     string n_temp;
     getline(cin, n_temp);
 
-    long n = stol(ltrim(rtrim(n_temp)));
+    long long n = stol(ltrim(rtrim(n_temp)));
 
-    long result = sumXor(n);
+    long result = xorsum(n);
 
     fout << result << "\n";
 
@@ -58,7 +43,7 @@ string ltrim(const string &str) {
         find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
     );
 
-    return s;
+    return s;//returning s
 }
 
 string rtrim(const string &str) {
@@ -69,5 +54,5 @@ string rtrim(const string &str) {
         s.end()
     );
 
-    return s;
+    return s;//returning s
 }
